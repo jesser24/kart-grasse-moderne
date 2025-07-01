@@ -76,7 +76,7 @@ const LiveChat = () => {
   };
 
   return (
-    <div className="fixed bottom-4 right-4 z-50 flex flex-col items-end space-y-2">
+    <div className="fixed bottom-4 left-4 z-50 flex flex-col items-start space-y-2">
       {/* Notifications flottantes */}
       <AnimatePresence>
         {notifications.map((notification) => (
