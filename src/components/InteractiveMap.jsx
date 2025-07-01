@@ -150,9 +150,9 @@ const InteractiveMap = () => {
                       className="absolute w-8 h-8 bg-white rounded-full flex items-center justify-center 
                         text-sm font-bold text-gray-700 shadow-md z-30" // Increased size and z-index
                       style={{
-                        left: `${point.x + 2}%`, // Adjusted to be slightly to the right of the point
-                        top: `${point.y - 10}%`, // Adjusted to be above the point
-                        transform: 'translate(-50%, -50%)'
+                        left: `${point.x}%`, // Keep same X as point
+                        top: `${point.y - 10}%`, // Adjusted to be above the point, considering its own height
+                        transform: 'translate(-50%, -50%)' // Center based on its own dimensions
                       }}
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
@@ -282,3 +282,5 @@ const InteractiveMap = () => {
 };
 
 export default InteractiveMap;
+
+
