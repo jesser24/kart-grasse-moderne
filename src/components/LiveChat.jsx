@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { MessageSquare, Users, Clock, CheckCircle2, X, MessageSquareText } from 'lucide-react';
+import { MessageSquare, Users, Clock, CheckCircle2, ChevronLeft, ChevronRight, MessageSquareText } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
 import { Badge } from './ui/badge';
 
@@ -76,7 +76,7 @@ const LiveChat = () => {
   };
 
   return (
-    <div className="fixed bottom-4 right-4 z-50 flex flex-col items-end space-y-4">
+    <div className="fixed bottom-4 right-4 z-50 flex flex-col items-end space-y-2">
       {/* Notifications flottantes */}
       <AnimatePresence>
         {notifications.map((notification) => (
@@ -86,13 +86,13 @@ const LiveChat = () => {
             animate={{ opacity: 1, x: 0, scale: 1 }}
             exit={{ opacity: 0, x: 100, scale: 0.8 }}
             transition={{ type: "spring", stiffness: 300, damping: 30 }}
-            className="bg-green-500 text-white p-2 rounded-lg shadow-lg max-w-xs"
+            className="bg-green-500 text-white p-1.5 rounded-lg shadow-lg max-w-[180px] text-xs"
           >
-            <div className="flex items-start space-x-2">
-              <CheckCircle2 className="w-4 h-4 mt-0.5 flex-shrink-0" />
+            <div className="flex items-start space-x-1.5">
+              <CheckCircle2 className="w-3 h-3 mt-0.5 flex-shrink-0" />
               <div>
-                <p className="text-xs font-medium">{notification.message}</p>
-                <p className="text-xs opacity-90">{formatTimeAgo(notification.timestamp)}</p>
+                <p className="font-medium leading-tight">{notification.message}</p>
+                <p className="opacity-90 leading-tight">{formatTimeAgo(notification.timestamp)}</p>
               </div>
             </div>
           </motion.div>
@@ -102,20 +102,20 @@ const LiveChat = () => {
       {/* Bouton pour ouvrir/fermer le widget */}
       <motion.button
         onClick={() => setIsOpen(!isOpen)}
-        className="bg-primary text-primary-foreground p-4 rounded-full shadow-lg hover:bg-primary/90 transition-colors"
+        className="bg-primary text-primary-foreground p-3 rounded-full shadow-lg hover:bg-primary/90 transition-colors"
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
       >
-        {isOpen ? <X className="w-6 h-6" /> : <MessageSquareText className="w-6 h-6" />}
+        {isOpen ? <ChevronRight className="w-5 h-5" /> : <ChevronLeft className="w-5 h-5" />}
       </motion.button>
 
       {/* Widget d'activité */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, y: 50, scale: 0.9 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 50, scale: 0.9 }}
+            initial={{ opacity: 0, x: 300 }} // Start off-screen to the right
+            animate={{ opacity: 1, x: 0 }} // Slide in
+            exit={{ opacity: 0, x: 300 }} // Slide out to the right
             transition={{ type: "spring", stiffness: 300, damping: 30 }}
           >
             <Card className="w-72 border-0 shadow-lg bg-card/95 backdrop-blur-sm">
