@@ -51,7 +51,7 @@ function App() {
   }
 
   return (
-    <Router>
+    <Router basename="/kart-grasse-moderne">
       <div className="App min-h-screen bg-background text-foreground">
         <AnimatePresence mode="wait">
           <Routes>
