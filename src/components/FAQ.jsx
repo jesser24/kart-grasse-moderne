@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronDown, ChevronUp, HelpCircle, Clock, Users, MapPin, Shield, Zap, CreditCard } from 'lucide-react';
+import { ChevronDown, ChevronUp, HelpCircle, Clock, Users, MapPin, Shield, Zap, CreditCard, Calendar } from 'lucide-react';
 import { Card, CardContent } from './ui/card';
 
 // Import des images d'icônes
