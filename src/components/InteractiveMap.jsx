@@ -11,7 +11,7 @@ const InteractiveMap = () => {
     {
       id: 1,
       name: 'Place aux Aires',
-      description: 'Point de départ de votre aventure',
+      description: 'Point de départ de votre aventure. Briefing sécurité et remise des équipements.',
       x: 15,
       y: 25,
       type: 'start',
@@ -21,7 +21,7 @@ const InteractiveMap = () => {
     {
       id: 2,
       name: 'Musée International de la Parfumerie',
-      description: 'Découverte de l\'histoire du parfum',
+      description: 'Découverte de l\'histoire du parfum. Visite guidée et dégustation olfactive.',
       x: 40,
       y: 50,
       type: 'museum',
@@ -31,7 +31,7 @@ const InteractiveMap = () => {
     {
       id: 3,
       name: 'Cathédrale Notre-Dame-du-Puy',
-      description: 'Monument historique emblématique',
+      description: 'Monument historique emblématique. Architecture gothique et vue panoramique.',
       x: 60,
       y: 20,
       type: 'monument',
@@ -41,7 +41,7 @@ const InteractiveMap = () => {
     {
       id: 4,
       name: 'Jardins du Musée Fragonard',
-      description: 'Oasis de verdure et de senteurs',
+      description: 'Oasis de verdure et de senteurs. Plantes aromatiques et photo souvenir.',
       x: 75,
       y: 65,
       type: 'garden',
@@ -51,7 +51,7 @@ const InteractiveMap = () => {
     {
       id: 5,
       name: 'Vieille Ville',
-      description: 'Ruelles pittoresques et authentiques',
+      description: 'Ruelles pittoresques et authentiques. Architecture provençale et boutiques artisanales.',
       x: 85,
       y: 40,
       type: 'historic',
@@ -112,27 +112,10 @@ const InteractiveMap = () => {
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="relative aspect-video bg-gradient-to-br from-green-100 to-blue-100 rounded-lg overflow-hidden">
+                <div className="relative aspect-video bg-gray-200 rounded-lg overflow-hidden">
                   {/* Fond de carte stylisé */}
-                  <div className="absolute inset-0 opacity-20">
-                    <svg viewBox="0 0 100 100" className="w-full h-full">
-                      {/* Routes */}
-                      <path
-                        d="M 20,30 Q 35,20 50,25 Q 65,30 75,35"
-                        stroke="#4ade80"
-                        strokeWidth="0.5"
-                        fill="none"
-                        strokeDasharray="2,2"
-                      />
-                      <path
-                        d="M 35,45 Q 50,40 65,60 Q 70,50 75,35"
-                        stroke="#4ade80"
-                        strokeWidth="0.5"
-                        fill="none"
-                        strokeDasharray="2,2"
-                      />
-                    </svg>
-                  </div>
+                  {/* Removed SVG paths for simplicity and to avoid visual conflicts. 
+                      A proper map library (like Leaflet or Google Maps) would be ideal here. */}
 
                   {/* Points d'intérêt */}
                   {tourPoints.map((point, index) => {
@@ -140,9 +123,9 @@ const InteractiveMap = () => {
                     return (
                       <motion.button
                         key={point.id}
-                        className={`absolute w-8 h-8 rounded-full ${getPointColor(point.type)} 
+                        className={`absolute w-12 h-12 rounded-full ${getPointColor(point.type)} 
                           flex items-center justify-center text-white shadow-lg cursor-pointer
-                          hover:scale-110 transition-transform z-10`}
+                          hover:scale-110 transition-transform z-20`} // Increased size and z-index
                         style={{
                           left: `${point.x}%`,
                           top: `${point.y}%`,
@@ -155,7 +138,7 @@ const InteractiveMap = () => {
                         animate={{ scale: 1 }}
                         transition={{ delay: index * 0.2 }}
                       >
-                        <Icon className="w-4 h-4" />
+                        <Icon className="w-6 h-6" /> {/* Increased icon size */}
                       </motion.button>
                     );
                   })}
@@ -164,11 +147,11 @@ const InteractiveMap = () => {
                   {tourPoints.map((point, index) => (
                     <motion.div
                       key={`number-${point.id}`}
-                      className="absolute w-6 h-6 bg-white rounded-full flex items-center justify-center 
-                        text-xs font-bold text-gray-700 shadow-md"
+                      className="absolute w-8 h-8 bg-white rounded-full flex items-center justify-center 
+                        text-sm font-bold text-gray-700 shadow-md z-30" // Increased size and z-index
                       style={{
-                        left: `${point.x}%`,
-                        top: `${point.y - 12}%`,
+                        left: `${point.x + 2}%`, // Adjusted to be slightly to the right of the point
+                        top: `${point.y - 10}%`, // Adjusted to be above the point
                         transform: 'translate(-50%, -50%)'
                       }}
                       initial={{ opacity: 0 }}
@@ -299,4 +282,3 @@ const InteractiveMap = () => {
 };
 
 export default InteractiveMap;
-
