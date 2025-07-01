@@ -6,6 +6,11 @@ on:
   pull_request:
     branches: [ main ]
 
+permissions:
+  contents: write  # Permet d'écrire dans le dépôt
+  pages: write     # Permet de gérer les déploiements de pages
+  id-token: write  # Nécessaire pour l'authentification OIDC (si utilisé)
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -21,8 +26,7 @@ jobs:
         cache: 'npm'
         
     - name: Install dependencies
-      run: npm ci --force
-
+      run: npm ci --force # Ou --legacy-peer-deps si vous préférez
       
     - name: Build
       run: npm run build
@@ -33,4 +37,3 @@ jobs:
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./dist
-
