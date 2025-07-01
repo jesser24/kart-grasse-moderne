@@ -85,12 +85,12 @@ const LiveChat = () => {
             animate={{ opacity: 1, x: 0, scale: 1 }}
             exit={{ opacity: 0, x: -100, scale: 0.8 }}
             transition={{ type: "spring", stiffness: 300, damping: 30 }}
-            className="bg-green-500 text-white p-3 rounded-lg shadow-lg max-w-sm"
+            className="bg-green-500 text-white p-2 rounded-lg shadow-lg max-w-xs"
           >
             <div className="flex items-start space-x-2">
-              <CheckCircle2 className="w-5 h-5 mt-0.5 flex-shrink-0" />
+              <CheckCircle2 className="w-4 h-4 mt-0.5 flex-shrink-0" />
               <div>
-                <p className="text-sm font-medium">{notification.message}</p>
+                <p className="text-xs font-medium">{notification.message}</p>
                 <p className="text-xs opacity-90">{formatTimeAgo(notification.timestamp)}</p>
               </div>
             </div>
@@ -104,7 +104,7 @@ const LiveChat = () => {
         animate={{ opacity: 1, x: 0 }}
         transition={{ delay: 1, duration: 0.6 }}
       >
-        <Card className="w-80 border-0 shadow-lg bg-card/95 backdrop-blur-sm">
+        <Card className="w-72 border-0 shadow-lg bg-card/95 backdrop-blur-sm">
           <CardHeader className="pb-3">
             <CardTitle className="flex items-center justify-between text-lg">
               <span className="flex items-center space-x-2">
