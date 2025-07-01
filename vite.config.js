@@ -5,6 +5,7 @@ import path from 'path'
 
 // https://vite.dev/config/
 export default defineConfig({
+  base: '/kart-grasse-moderne/', // <-- Ajoutez ou modifiez cette ligne
   plugins: [react(),tailwindcss()],
   resolve: {
     alias: {
