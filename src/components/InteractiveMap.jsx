@@ -12,8 +12,8 @@ const InteractiveMap = () => {
       id: 1,
       name: 'Place aux Aires',
       description: 'Point de départ de votre aventure',
-      x: 20,
-      y: 30,
+      x: 15,
+      y: 25,
       type: 'start',
       duration: '5 min',
       highlights: ['Briefing sécurité', 'Remise des équipements']
@@ -22,8 +22,8 @@ const InteractiveMap = () => {
       id: 2,
       name: 'Musée International de la Parfumerie',
       description: 'Découverte de l\'histoire du parfum',
-      x: 35,
-      y: 45,
+      x: 40,
+      y: 50,
       type: 'museum',
       duration: '15 min',
       highlights: ['Visite guidée', 'Dégustation olfactive']
@@ -32,8 +32,8 @@ const InteractiveMap = () => {
       id: 3,
       name: 'Cathédrale Notre-Dame-du-Puy',
       description: 'Monument historique emblématique',
-      x: 50,
-      y: 25,
+      x: 60,
+      y: 20,
       type: 'monument',
       duration: '10 min',
       highlights: ['Architecture gothique', 'Vue panoramique']
@@ -42,8 +42,8 @@ const InteractiveMap = () => {
       id: 4,
       name: 'Jardins du Musée Fragonard',
       description: 'Oasis de verdure et de senteurs',
-      x: 65,
-      y: 60,
+      x: 75,
+      y: 65,
       type: 'garden',
       duration: '12 min',
       highlights: ['Plantes aromatiques', 'Photo souvenir']
@@ -52,8 +52,8 @@ const InteractiveMap = () => {
       id: 5,
       name: 'Vieille Ville',
       description: 'Ruelles pittoresques et authentiques',
-      x: 75,
-      y: 35,
+      x: 85,
+      y: 40,
       type: 'historic',
       duration: '20 min',
       highlights: ['Architecture provençale', 'Boutiques artisanales']
@@ -168,7 +168,7 @@ const InteractiveMap = () => {
                         text-xs font-bold text-gray-700 shadow-md"
                       style={{
                         left: `${point.x}%`,
-                        top: `${point.y - 8}%`,
+                        top: `${point.y - 12}%`,
                         transform: 'translate(-50%, -50%)'
                       }}
                       initial={{ opacity: 0 }}
