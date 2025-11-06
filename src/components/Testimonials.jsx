@@ -50,13 +50,13 @@ const Testimonials = () => {
       name: "Ethan",
       role: "Co-fondateur & Développement",
       image: ethanImage,
-      description: "Passionné de technologie et d'innovation, Ethan s'occupe du développement technique du projet."
+      description: "Expert en communication, Ethan développe la stratégie marketing et les partenariats."
     },
     {
       name: "Jesser",
       role: "Co-fondateur & Marketing",
       image: jesserImage,
-      description: "Expert en communication, Jesser développe la stratégie marketing et les partenariats."
+      description: " Passionné de développement web et d'innovation, Jesser s'occupe du développement technique du projet."
     },
     {
       name: "Mohamed",
