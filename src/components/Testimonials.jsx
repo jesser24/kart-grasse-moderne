@@ -50,7 +50,7 @@ const Testimonials = () => {
       name: "Ethan",
       role: "Co-fondateur & Développement",
       image: ethanImage,
-      description: "Expert en communication, Ethan développe la stratégie marketing et les partenariats."
+      description: "Expert en communication, Ethan développe la stratégie marketing et les partenariats ."
     },
     {
       name: "Jesser",
